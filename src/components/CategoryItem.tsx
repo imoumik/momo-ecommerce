@@ -1,4 +1,4 @@
-import { ICategory } from './utils/InterfaceTypes';
+import { ICategory } from '../utils/InterfaceTypes';
 import './styles/category.styles.scss';
 
 const CategoryItem = ({ category }: { category: ICategory }) => {

@@ -1,6 +1,6 @@
 import CategoryItem from './CategoryItem';
-import { categories } from './utils/AppConstants';
-import { ICategory } from './utils/InterfaceTypes';
+import { categories } from '../utils/AppConstants';
+import { ICategory } from '../utils/InterfaceTypes';
 import './styles/categories.styles.scss';
 
 const Directory = () => {
