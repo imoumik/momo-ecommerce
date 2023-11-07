@@ -1,10 +1,11 @@
-import { Button } from 'semantic-ui-react';
+import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
 import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocumentFromAuth } from '../utils/firebase/firebase.utils';
 import { useEffect } from 'react';
 import { getRedirectResult } from 'firebase/auth';
 import SignUpForm from '../components/SignUpForm';
+import SignInForm from '../components/SignInForm';
 
-const SignIn = () => {
+const Authentication = () => {
 
     useEffect(() => {
         // Asynchronous anonymous function, since not recommended to make useEffect ReadOnly
@@ -33,9 +34,21 @@ const SignIn = () => {
             <h1>I am the SignIn Page</h1>
             <Button onClick={logGoogleUser}>Signin with Google Popup</Button>
             <Button onClick={signInWithGoogleRedirect}>Signin with Google Redirect</Button>
-            <SignUpForm />
+            <Segment placeholder>
+                <Grid columns={2} stackable textAlign='center'>
+                    <Divider vertical>Or</Divider>
+                    <Grid.Row verticalAlign='middle'>
+                        <Grid.Column>
+                            <SignInForm />
+                        </Grid.Column>
+                        <Grid.Column>
+                            <SignUpForm />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </Segment>
         </>
     );
 }
 
-export default SignIn;
+export default Authentication;

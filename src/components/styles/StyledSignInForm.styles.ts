@@ -4,14 +4,18 @@ const StyledSignUpForm = styled.div`
     display: flex;
     flex-direction: column;
     width: 480px;
-    margin: 2em;
-    
+
     .ui.form .field>label {
       text-align: left !important;
     }
-
+  
     h2 {
       margin: auto;
+    }
+    
+    button{
+      display: inline-block !important;
+      margin: 1em !important;
     }
   `;
 

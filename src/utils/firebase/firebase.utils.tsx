@@ -6,7 +6,7 @@ import {
     GoogleAuthProvider,
     User,
     createUserWithEmailAndPassword,
-    Auth
+    signInWithEmailAndPassword
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 import { ISignUpFormFields } from '../InterfaceTypes';
@@ -63,4 +63,9 @@ export const createUserDocumentFromAuth = async (userAuth: User,
 export const createAuthUserWithEmailAndPassword = async (email: string, password: string) => {
     if (!email || !password) return;
     return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email: string, password: string) => {
+    if (!email || !password) return;
+    return await signInWithEmailAndPassword(auth, email, password)
 }

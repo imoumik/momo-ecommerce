@@ -21,7 +21,7 @@ const HeaderComponent = () => {
                         <span className='link-container'>
                             <Link className='nav-link' to='/shop'><h3>SHOP</h3></Link>
                             <Link className='nav-link' to='/contact'><h3>CONTACT</h3></Link>
-                            <Link className='nav-link' to='/signin'><h3>SIGN IN</h3></Link>
+                            <Link className='nav-link' to='/auth'><h3>SIGN IN</h3></Link>
                             <Link className='nav-link' to='/cart'><Icon large name='cart' /></Link>
                         </span>
                     </Grid.Column>

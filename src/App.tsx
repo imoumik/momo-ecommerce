@@ -3,7 +3,7 @@ import HomePage from './routes/HomePage';
 import Navigation from './routes/Navigation';
 import Shop from './routes/Shop';
 import Contact from './routes/Contact';
-import SignIn from './routes/SignIn';
+import Authentication from './routes/Authentication';
 import Cart from './routes/Cart';
 
 const App = () => (
@@ -12,7 +12,7 @@ const App = () => (
       <Route index element={<HomePage />} />
       <Route path='shop' element={<Shop />} />
       <Route path='contact' element={<Contact />} />
-      <Route path='signin' element={<SignIn />} />
+      <Route path='auth' element={<Authentication />} />
       <Route path='cart' element={<Cart />} />
     </Route>
   </Routes>

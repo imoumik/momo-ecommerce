@@ -38,7 +38,7 @@ const SignUpForm = () => {
             const response: UserCredential | undefined = await createAuthUserWithEmailAndPassword(email, password);
             if (response?.user) {
                 await createUserDocumentFromAuth(response?.user, { displayName });
-                alert('Hurray!')
+                alert('SignUp Success!')
                 resetFormFields();
             }
         } catch (error: any) {
