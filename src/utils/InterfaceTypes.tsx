@@ -3,3 +3,10 @@ export interface ICategory {
     title: string;
     imageUrl: string;
 }
+
+export interface ISignUpFormFields {
+    displayName: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+}

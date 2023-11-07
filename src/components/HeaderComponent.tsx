@@ -1,7 +1,7 @@
 import { Image, Header, Grid, Icon } from 'semantic-ui-react';
 import letterM from '../resources/letterM.png';
 // import Mimg from '../resources/Mimg.png';
-import StyledHeader from './StyledHeader.styles';
+import StyledHeader from './styles/StyledHeader.styles';
 import { Link } from 'react-router-dom';
 
 const HeaderComponent = () => {
