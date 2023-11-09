@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Button, Form, FormProps, Input, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Button, Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
 import { ISignInFormFields } from '../utils/InterfaceTypes';
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../utils/firebase/firebase.utils';
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
 import StyledSignInForm from './styles/StyledSignInForm.styles';
 import FormInput from './FormInput';
@@ -16,6 +16,9 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
+    // const value = useContext<CurrentUserContextType | null>(UserContext);
+    // const { setCurrentUser } = value as CurrentUserContextType;
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
         event.preventDefault();
         setFormFields({ ...formFields, [data.name]: data.value })
@@ -27,9 +30,11 @@ const SignInForm = () => {
     };
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
-        resetFormFields();
+        await signInWithGooglePopup();
+        // Move this functionality to Navigator
+        // const { user } = await signInWithGooglePopup();
+        // await createUserDocumentFromAuth(user);
+        // resetFormFields();
     }
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>, data: FormProps) => {
@@ -43,6 +48,7 @@ const SignInForm = () => {
             console.log(response)
             if (response?.user) {
                 alert('SignIn Success!')
+                // setCurrentUser(response.user)
                 resetFormFields();
             }
         } catch (error: any) {

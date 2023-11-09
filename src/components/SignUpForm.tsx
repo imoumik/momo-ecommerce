@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Button, Form, FormProps, Input, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Button, Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
 import { ISignUpFormFields } from '../utils/InterfaceTypes';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
@@ -17,6 +17,9 @@ const SignUpForm = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
+
+    // const value = useContext<CurrentUserContextType | null>(UserContext);
+    // const { setCurrentUser } = value as CurrentUserContextType;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
         event.preventDefault();
@@ -37,8 +40,10 @@ const SignUpForm = () => {
         try {
             const response: UserCredential | undefined = await createAuthUserWithEmailAndPassword(email, password);
             if (response?.user) {
+                //NOTE: Can't move this to UserContext since we need displayName
                 await createUserDocumentFromAuth(response?.user, { displayName });
                 alert('SignUp Success!')
+                // setCurrentUser(response.user)
                 resetFormFields();
             }
         } catch (error: any) {

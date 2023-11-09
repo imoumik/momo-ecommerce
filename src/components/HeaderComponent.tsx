@@ -3,8 +3,21 @@ import letterM from '../resources/letterM.png';
 // import Mimg from '../resources/Mimg.png';
 import StyledHeader from './styles/StyledHeader.styles';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { CurrentUserContextType } from '../utils/InterfaceTypes';
+import { onAuthStateChangedListener, signOutUser } from '../utils/firebase/firebase.utils';
 
 const HeaderComponent = () => {
+    const value = useContext<CurrentUserContextType | null>(UserContext);
+    const { currentUser } = value as CurrentUserContextType;
+
+    /* const signOutHandler = async () => {
+        await signOutUser(); // becomes undefined if user is signed out
+        // setCurrentUser(null); // set UserContext value to currentUser to null
+        // Now we use Listener in UserContext.tsx
+    } */
+
     return (
         <StyledHeader>
             <Grid>
@@ -21,8 +34,11 @@ const HeaderComponent = () => {
                         <span className='link-container'>
                             <Link className='nav-link' to='/shop'><h3>SHOP</h3></Link>
                             <Link className='nav-link' to='/contact'><h3>CONTACT</h3></Link>
-                            <Link className='nav-link' to='/auth'><h3>SIGN IN</h3></Link>
-                            <Link className='nav-link' to='/cart'><Icon large name='cart' /></Link>
+                            {currentUser ?
+                                (<span className='nav-link' onClick={signOutUser}><h3>SIGN OUT</h3></span>)
+                                : (<Link className='nav-link' to='/auth'><h3>SIGN IN</h3></Link>)
+                            }
+                            <Link className='nav-link' to='/cart'><Icon large='true' name='cart' /></Link>
                         </span>
                     </Grid.Column>
                 </Grid.Row>

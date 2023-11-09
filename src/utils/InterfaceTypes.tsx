@@ -1,3 +1,6 @@
+import { NextOrObserver, User } from "firebase/auth";
+import { SetStateAction } from "react";
+
 export interface ICategory {
     id: number;
     title: string;
@@ -13,4 +16,8 @@ export interface ISignUpFormFields extends ISignInFormFields {
     confirmPassword: string;
 }
 
+export interface CurrentUserContextType {
+    currentUser: string | null;
+    setCurrentUser: null | React.Dispatch<SetStateAction<null>> | React.Dispatch<React.SetStateAction<User>>;
+}
 
