@@ -8,6 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 import { UserProvider } from './contexts/UserContext';
+import { ProductsProvider } from './contexts/ProductsContext';
+import { CartProvider } from './contexts/CartContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +19,11 @@ root.render(
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <UserProvider>
-          <App />
+          <ProductsProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </ProductsProvider>
         </UserProvider>
       </BrowserRouter>
     </ThemeProvider>

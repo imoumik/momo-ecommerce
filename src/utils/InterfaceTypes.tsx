@@ -1,5 +1,4 @@
-import { NextOrObserver, User } from "firebase/auth";
-import { SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
 export interface ICategory {
     id: number;
@@ -18,6 +17,16 @@ export interface ISignUpFormFields extends ISignInFormFields {
 
 export interface CurrentUserContextType {
     currentUser: string | null;
-    setCurrentUser: null | React.Dispatch<SetStateAction<null>> | React.Dispatch<React.SetStateAction<User>>;
+    setCurrentUser: Dispatch<SetStateAction<null>>;
+}
+
+export interface IProductContext {
+    products: { id: number; name: string; imageUrl: string; price: number; }[];
+    setProducts: Dispatch<SetStateAction<{ id: number; name: string; imageUrl: string; price: number; }[]>>;
+}
+
+export interface ICartContext {
+    isCartOpen: boolean;
+    setCartOpen: Dispatch<SetStateAction<boolean>>;
 }
 
