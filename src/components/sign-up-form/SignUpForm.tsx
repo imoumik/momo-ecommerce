@@ -1,9 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Button, Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
 import { ISignUpFormFields } from '../../utils/InterfaceTypes';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
 import FormInput from '../form-input/FormInput';
+import Button from '../button/Button';
 import StyledSignUpForm from './StyledSignUpForm.styles';
 
 const defaultFormFields: ISignUpFormFields = {
@@ -89,7 +90,7 @@ const SignUpForm = () => {
                         name='confirmPassword'
                         value={confirmPassword}
                     />
-                    <Button positive type='submit'>Sign Up</Button>
+                    <Button type='submit'>Sign Up</Button>
                 </Form>
             </Segment>
         </StyledSignUpForm>

@@ -3,7 +3,7 @@ import ProductCard from '../product-card/ProductCard';
 import { ICartElement } from '../../utils/InterfaceTypes';
 import './category-preview.styles.scss';
 
-const CategoryPreview = ({ title, products }: { title: string, products: ICartElement[] }) => {
+const CategoryPreview = ({ title, products }: { title: string; products: ICartElement[] }) => {
     return (
         <div className='category-preview-container'>
             <h2><Link to={title} className='title'>{title.toUpperCase()}</Link></h2>

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { Button } from 'semantic-ui-react';
 import { CartContext } from '../../contexts/CartContext';
 import { ICartElement } from '../../utils/InterfaceTypes';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 import './product-card.styles.scss';
 
 const ProductCard = ({ product }: { product: ICartElement }) => {
@@ -19,7 +19,12 @@ const ProductCard = ({ product }: { product: ICartElement }) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <Button inverted color='black' onClick={addProductToCart}>Add to Cart</Button>
+            <Button
+                buttonType={BUTTON_TYPE_CLASSES.inverted}
+                onClick={addProductToCart}
+            >
+                Add to Cart
+            </Button>
         </div>
     );
 }

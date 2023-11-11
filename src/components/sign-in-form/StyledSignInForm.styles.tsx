@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledSignInForm = styled.div`
     display: flex;
     flex-direction: column;
-    width: 480px;
+    width: 30em;
 
     .ui.form .field>label {
       text-align: left !important;
@@ -13,10 +13,10 @@ const StyledSignInForm = styled.div`
       margin: auto;
     }
     
-    button{
-      display: inline-block !important;
-      margin: 1em !important;
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
     }
   `;
 
-  export default StyledSignInForm;
+export default StyledSignInForm;

@@ -1,9 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Button, Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
 import { ISignInFormFields } from '../../utils/InterfaceTypes';
 import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
 import FormInput from '../form-input/FormInput';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 import StyledSignInForm from './StyledSignInForm.styles';
 
 const defaultFormFields: ISignInFormFields = {
@@ -85,12 +86,14 @@ const SignInForm = () => {
                         name='password'
                         value={password}
                     />
-                    <div>
-                        <Button secondary type='submit'>
-                            Sign In
-                        </Button>
-                        <Button type='button' color='instagram' onClick={signInWithGoogle}>
-                            Google Sign In
+                    <div className='buttons-container'>
+                        <Button type='submit'>Sign In</Button>
+                        <Button
+                            buttonType={BUTTON_TYPE_CLASSES.google}
+                            type='button'
+                            onClick={signInWithGoogle}
+                        >
+                            Sign In With Google
                         </Button>
                     </div>
                 </Form>

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
 import CartItem from '../cart-item/CartItem';
 import { CartContext } from '../../contexts/CartContext';
 import { ICartElement } from '../../utils/InterfaceTypes';
+import Button from '../button/Button';
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = () => {
@@ -15,7 +15,7 @@ const CartDropdown = () => {
     }
 
     return (
-        <div className='cart-dropdown-container'>empty-message
+        <div className='cart-dropdown-container'>
             <div className='cart-items'>
                 {cartItems.length ? (
                     cartItems.map((cartItem: ICartElement) => (
@@ -25,7 +25,7 @@ const CartDropdown = () => {
                     <span className='empty-message'>Your cart is empty</span>
                 )}
             </div>
-            <Button secondary onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+            <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
         </div>
     );
 }

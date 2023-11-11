@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
-import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
+import { Divider, Grid, Segment } from 'semantic-ui-react';
 import { getRedirectResult } from 'firebase/auth';
 import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import SignUpForm from '../../components/sign-up-form/SignUpForm';
 import SignInForm from '../../components/sign-in-form/SignInForm';
+import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/Button';
+import './authentication.styles.scss';
 
 const Authentication = () => {
 
@@ -31,9 +33,6 @@ const Authentication = () => {
 
     return (
         <>
-            <h1>I am the SignIn Page</h1>
-            <Button onClick={logGoogleUser}>Signin with Google Popup</Button>
-            <Button onClick={signInWithGoogleRedirect}>Signin with Google Redirect</Button>
             <Segment placeholder>
                 <Grid columns={2} stackable textAlign='center'>
                     <Divider vertical>Or</Divider>
@@ -47,6 +46,15 @@ const Authentication = () => {
                     </Grid.Row>
                 </Grid>
             </Segment>
+            <div className='additional-auth'>
+                <h2>Additional SignIn Authentications: </h2>
+                <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={logGoogleUser}>
+                    Sign In With Google
+                </Button>
+                <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={signInWithGoogleRedirect}>
+                    Signin with Google Redirect
+                </Button>
+            </div>
         </>
     );
 }
