@@ -21,12 +21,23 @@ export interface CurrentUserContextType {
 }
 
 export interface IProductContext {
-    products: { id: number; name: string; imageUrl: string; price: number; }[];
-    setProducts: Dispatch<SetStateAction<{ id: number; name: string; imageUrl: string; price: number; }[]>>;
+    products: ICartElement[];
+    setProducts: Dispatch<SetStateAction<ICartElement[]>>;
+}
+
+export interface ICartElement {
+    id: number;
+    name: string;
+    imageUrl: string;
+    price: number;
+    quantity?: number;
 }
 
 export interface ICartContext {
     isCartOpen: boolean;
     setCartOpen: Dispatch<SetStateAction<boolean>>;
+    cartItems: ICartElement[];
+    addItemToCart: (productToAdd: ICartElement) => void;
+    cartCount: number;
 }
 

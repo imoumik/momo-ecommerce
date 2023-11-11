@@ -1,11 +1,15 @@
+import { useContext } from 'react';
 import './styles/product-card.styles.scss';
 import { Button } from 'semantic-ui-react';
+import { CartContext } from '../contexts/CartContext';
+import { ICartElement } from '../utils/InterfaceTypes';
 
-const ProductCard = ({ product }: any) => {
+const ProductCard = ({ product }: { product: ICartElement }) => {
     const { name, price, imageUrl } = product;
-    console.log(product)
-    const handleClick = (event: any, data: any) => {
-        return alert('Button Clicked')
+    const { addItemToCart } = useContext(CartContext);
+
+    const addProductToCart = () => {
+        addItemToCart(product)
     }
 
     return (
@@ -15,7 +19,7 @@ const ProductCard = ({ product }: any) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <Button inverted={true} color={'black'} onClick={handleClick}>Add to Cart</Button>
+            <Button inverted color='black' onClick={addProductToCart}>Add to Cart</Button>
         </div>
     );
 }
