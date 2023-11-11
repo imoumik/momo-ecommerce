@@ -20,9 +20,9 @@ export interface CurrentUserContextType {
     setCurrentUser: Dispatch<SetStateAction<null>>;
 }
 
-export interface IProductContext {
-    products: ICartElement[];
-    setProducts: Dispatch<SetStateAction<ICartElement[]>>;
+export interface ICategoriesContext {
+    categoriesMap: Record<string, any>;
+    setCategoriesMap: Dispatch<SetStateAction<Record<string, any>>>;
 }
 
 export interface ICartElement {

@@ -1,12 +1,12 @@
 import { ICategory } from '../utils/InterfaceTypes';
-import './styles/category.styles.scss';
+import './styles/directory-item.styles.scss';
 
-const CategoryItem = ({ category }: { category: ICategory }) => {
+const DirectoryItem = ({ category }: { category: ICategory }) => {
     const { id, title, imageUrl }: ICategory = category;
     return (
-        <div key={id} className='category-container'>
+        <div key={id} className='directory-item-container'>
             <div className='background-image' style={{ backgroundImage: `url(${imageUrl})` }} />
-            <div className='category-body-container'>
+            <div className='directory-item-body'>
                 <h2>{title}</h2>
                 <p>Shop Now</p>
             </div>
@@ -14,4 +14,4 @@ const CategoryItem = ({ category }: { category: ICategory }) => {
     );
 }
 
-export default CategoryItem;
+export default DirectoryItem;

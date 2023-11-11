@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledSignUpForm = styled.div`
+const StyledSignInForm = styled.div`
     display: flex;
     flex-direction: column;
     width: 480px;
@@ -19,4 +19,4 @@ const StyledSignUpForm = styled.div`
     }
   `;
 
-  export default StyledSignUpForm;
+  export default StyledSignInForm;

@@ -1,13 +1,12 @@
-import CategoryItem from './CategoryItem';
-import { categories } from '../utils/AppConstants';
+import DirectoryItem from './DirectoryItem';
 import { ICategory } from '../utils/InterfaceTypes';
-import './styles/categories.styles.scss';
+import './styles/directory.styles.scss';
 
-const Directory = () => {
+const Directory = ({ categories }: { categories: ICategory[] }) => {
     return (
-        <div className='categories-container'>
+        <div className='directory-container'>
             {categories.map((category: ICategory) => (
-                <CategoryItem category={category} />
+                <DirectoryItem category={category} />
             ))}
         </div>
     );

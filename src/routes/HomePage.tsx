@@ -1,17 +1,13 @@
-import CategoryItem from '../components/CategoryItem';
+import { Outlet } from 'react-router-dom';
+import Directory from '../components/Directory';
 import { categories } from '../utils/AppConstants';
-import { ICategory } from '../utils/InterfaceTypes';
-import '../components/styles/categories.styles.scss';
 
 const HomePage = () => {
     return (
-        <div>
-            <div className='categories-container'>
-                {categories.map((category: ICategory) => (
-                    <CategoryItem category={category} />
-                ))}
-            </div>
-        </div>
+        <>
+            <Directory categories={categories} />
+            <Outlet />
+        </>
     );
 }
 
