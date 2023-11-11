@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import './styles/product-card.styles.scss';
 import { Button } from 'semantic-ui-react';
-import { CartContext } from '../contexts/CartContext';
-import { ICartElement } from '../utils/InterfaceTypes';
+import { CartContext } from '../../contexts/CartContext';
+import { ICartElement } from '../../utils/InterfaceTypes';
+import './product-card.styles.scss';
 
 const ProductCard = ({ product }: { product: ICartElement }) => {
     const { name, price, imageUrl } = product;

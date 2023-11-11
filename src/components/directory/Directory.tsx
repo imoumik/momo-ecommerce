@@ -1,6 +1,6 @@
-import DirectoryItem from './DirectoryItem';
-import { ICategory } from '../utils/InterfaceTypes';
-import './styles/directory.styles.scss';
+import DirectoryItem from '../directory-item/DirectoryItem';
+import { ICategory } from '../../utils/InterfaceTypes';
+import './directory.styles.scss';
 
 const Directory = ({ categories }: { categories: ICategory[] }) => {
     return (

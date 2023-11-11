@@ -1,10 +1,10 @@
-import { Button } from 'semantic-ui-react';
-import './styles/cart-dropdown.styles.scss';
-import CartItem from './CartItem';
 import { useContext } from 'react';
-import { CartContext } from '../contexts/CartContext';
-import { ICartElement } from '../utils/InterfaceTypes';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
+import CartItem from '../cart-item/CartItem';
+import { CartContext } from '../../contexts/CartContext';
+import { ICartElement } from '../../utils/InterfaceTypes';
+import './cart-dropdown.styles.scss';
 
 const CartDropdown = () => {
     const { cartItems } = useContext(CartContext);

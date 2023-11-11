@@ -1,9 +1,9 @@
-import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
-import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocumentFromAuth } from '../utils/firebase/firebase.utils';
 import { useEffect } from 'react';
+import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
 import { getRedirectResult } from 'firebase/auth';
-import SignUpForm from '../components/SignUpForm';
-import SignInForm from '../components/SignInForm';
+import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+import SignUpForm from '../../components/sign-up-form/SignUpForm';
+import SignInForm from '../../components/sign-in-form/SignInForm';
 
 const Authentication = () => {
 

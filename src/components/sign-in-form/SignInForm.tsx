@@ -1,10 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Button, Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
-import { ISignInFormFields } from '../utils/InterfaceTypes';
-import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../utils/firebase/firebase.utils';
+import { ISignInFormFields } from '../../utils/InterfaceTypes';
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
-import StyledSignInForm from './styles/StyledSignInForm.styles';
-import FormInput from './FormInput';
+import FormInput from '../form-input/FormInput';
+import StyledSignInForm from './StyledSignInForm.styles';
 
 const defaultFormFields: ISignInFormFields = {
     email: '',

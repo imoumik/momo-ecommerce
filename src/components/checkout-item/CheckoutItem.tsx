@@ -1,9 +1,8 @@
 import { useContext } from 'react';
-import './styles/cart-item.styles.scss';
-import { CartContext } from '../contexts/CartContext';
-import { ICartElement } from '../utils/InterfaceTypes';
 import { Icon } from 'semantic-ui-react';
-import '../components/styles/checkout-item.styles.scss';
+import { CartContext } from '../../contexts/CartContext';
+import { ICartElement } from '../../utils/InterfaceTypes';
+import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ICartElement }) => {
     const { id, name, price, imageUrl, quantity } = cartItem;

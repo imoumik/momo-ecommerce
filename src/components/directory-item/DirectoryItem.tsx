@@ -1,5 +1,5 @@
-import { ICategory } from '../utils/InterfaceTypes';
-import './styles/directory-item.styles.scss';
+import { ICategory } from '../../utils/InterfaceTypes';
+import './directory-item.styles.scss';
 
 const DirectoryItem = ({ category }: { category: ICategory }) => {
     const { id, title, imageUrl }: ICategory = category;

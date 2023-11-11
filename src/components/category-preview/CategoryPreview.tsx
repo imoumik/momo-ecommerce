@@ -1,7 +1,7 @@
-import ProductCard from './ProductCard';
-import { ICartElement } from '../utils/InterfaceTypes';
-import './styles/category-preview.styles.scss';
 import { Link } from 'react-router-dom';
+import ProductCard from '../product-card/ProductCard';
+import { ICartElement } from '../../utils/InterfaceTypes';
+import './category-preview.styles.scss';
 
 const CategoryPreview = ({ title, products }: { title: string, products: ICartElement[] }) => {
     return (

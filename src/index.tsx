@@ -1,15 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import theme from './theme';
-import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
-import './index.scss';
 import { UserProvider } from './contexts/UserContext';
 import { CategoriesProvider } from './contexts/CategoriesContext';
 import { CartProvider } from './contexts/CartContext';
+import theme from './theme';
+import { ThemeProvider } from 'styled-components';
+import 'semantic-ui-css/semantic.min.css';
+import './index.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

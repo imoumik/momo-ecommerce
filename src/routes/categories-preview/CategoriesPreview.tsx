@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { CategoriesContext } from '../contexts/CategoriesContext';
-import { ICategoriesContext } from '../utils/InterfaceTypes';
-import CategoryPreview from '../components/CategoryPreview';
+import { CategoriesContext } from '../../contexts/CategoriesContext';
+import { ICategoriesContext } from '../../utils/InterfaceTypes';
+import CategoryPreview from '../../components/category-preview/CategoryPreview';
 
 const CategoriesPreview = () => {
     const { categoriesMap } = useContext<ICategoriesContext>(CategoriesContext);

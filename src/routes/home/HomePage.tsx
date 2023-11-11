@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Directory from '../components/Directory';
-import { categories } from '../utils/AppConstants';
+import Directory from '../../components/directory/Directory';
+import { categories } from '../../utils/AppConstants';
 
 const HomePage = () => {
     return (

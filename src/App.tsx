@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './routes/HomePage';
-import Navigation from './routes/Navigation';
-import Shop from './routes/Shop';
-import Contact from './routes/Contact';
-import Authentication from './routes/Authentication';
-import Checkout from './routes/Checkout';
+import HomePage from './routes/home/HomePage';
+import Navigation from './routes/navigation/Navigation';
+import Shop from './routes/shop/Shop';
+import Contact from './routes/contact/Contact';
+import Authentication from './routes/authentication/Authentication';
+import Checkout from './routes/checkout/Checkout';
 
 const App = () => (
   <Routes>

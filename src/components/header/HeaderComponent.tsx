@@ -1,15 +1,15 @@
-import { Image, Header, Grid } from 'semantic-ui-react';
-import letterM from '../resources/letterM.png';
-// import Mimg from '../resources/Mimg.png';
-import StyledHeader from './styles/StyledHeader.styles';
-import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
-import { CartContext } from '../contexts/CartContext';
-import { CurrentUserContextType, ICartContext } from '../utils/InterfaceTypes';
-import { signOutUser } from '../utils/firebase/firebase.utils';
-import CartIcon from './CartIcon';
-import CartDropdown from './CartDropdown';
+import { Link } from 'react-router-dom';
+import { Image, Header, Grid } from 'semantic-ui-react';
+import letterM from '../../resources/letterM.png';
+// import Mimg from '../resources/Mimg.png';
+import { UserContext } from '../../contexts/UserContext';
+import { CartContext } from '../../contexts/CartContext';
+import { CurrentUserContextType, ICartContext } from '../../utils/InterfaceTypes';
+import { signOutUser } from '../../utils/firebase/firebase.utils';
+import CartIcon from '../cart-icon/CartIcon';
+import CartDropdown from '../cart-dropdown/CartDropdown';
+import StyledHeader from './StyledHeader.styles';
 
 const HeaderComponent = () => {
     const value = useContext<CurrentUserContextType | null>(UserContext);

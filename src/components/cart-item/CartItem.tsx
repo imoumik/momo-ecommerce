@@ -1,5 +1,5 @@
-import { ICartElement } from '../utils/InterfaceTypes';
-import './styles/cart-item.styles.scss';
+import { ICartElement } from '../../utils/InterfaceTypes';
+import './cart-item.styles.scss';
 
 const CartItem = ({ cartItem }: { cartItem: ICartElement }) => {
     const { imageUrl, price, name, quantity } = cartItem;

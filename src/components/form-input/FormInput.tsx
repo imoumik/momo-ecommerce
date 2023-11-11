@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
-// import clsx from 'clsx';
 import { Form, Input, InputOnChangeData } from 'semantic-ui-react';
-import StyledInput from './styles/StyledInput.styles';
+// import clsx from 'clsx';
+import StyledInput from './StyledInput.styles';
 
 const FormInput = ({ label, ...otherProps }: { label: string; type: string; required: true; onChange: (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => void; name: string; value: string; }) => {
     return (
