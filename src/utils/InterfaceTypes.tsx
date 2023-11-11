@@ -39,5 +39,8 @@ export interface ICartContext {
     cartItems: ICartElement[];
     addItemToCart: (productToAdd: ICartElement) => void;
     cartCount: number;
+    removeItemFromCart: (cartItemToRemove: ICartElement) => void;
+    clearItemFromCart: (cartItemToClear: ICartElement) => void;
+    cartTotal: number;
 }
 

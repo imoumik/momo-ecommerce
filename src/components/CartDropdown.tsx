@@ -4,12 +4,14 @@ import CartItem from './CartItem';
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { ICartElement } from '../utils/InterfaceTypes';
+import { useNavigate } from 'react-router-dom';
 
 const CartDropdown = () => {
     const { cartItems } = useContext(CartContext);
+    const navigate = useNavigate();
 
-    const handleClick = (event: any, data: any) => {
-        return alert('Checkout Button Clicked')
+    const goToCheckoutHandler = () => {
+        navigate('/checkout')
     }
 
     return (
@@ -23,7 +25,7 @@ const CartDropdown = () => {
                     <span className='empty-message'>Your cart is empty</span>
                 )}
             </div>
-            <Button secondary onClick={handleClick}>GO TO CHECKOUT</Button>
+            <Button secondary onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
         </div>
     );
 }
