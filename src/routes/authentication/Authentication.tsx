@@ -4,7 +4,7 @@ import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocume
 import SignUpForm from '../../components/sign-up-form/SignUpForm';
 import SignInForm from '../../components/sign-in-form/SignInForm';
 import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/Button';
-import './authentication.styles.scss';
+import { AuthenticationContainer, AdditionalAuth } from './StyledAuthentication.styles';
 
 const Authentication = () => {
 
@@ -31,11 +31,11 @@ const Authentication = () => {
 
     return (
         <>
-            <div className="authentication-container">
+            <AuthenticationContainer>
                 <SignInForm />
                 <SignUpForm />
-            </div>
-            <div className='additional-auth'>
+            </AuthenticationContainer>
+            <AdditionalAuth>
                 <h2>Additional SignIn Authentications: </h2>
                 <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={logGoogleUser}>
                     Sign In With Google
@@ -43,7 +43,7 @@ const Authentication = () => {
                 <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={signInWithGoogleRedirect}>
                     Signin with Google Redirect
                 </Button>
-            </div>
+            </AdditionalAuth>
         </>
     );
 }

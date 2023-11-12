@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Icon } from 'semantic-ui-react';
 import { CartContext } from '../../contexts/CartContext';
 import { ICartElement } from '../../utils/InterfaceTypes';
-import './checkout-item.styles.scss';
+import { CheckoutItemContainer, ImageContainer, BaseSpan, Quantity, Arrow, Value, RemoveButton } from './StyledCheckoutItem.styles';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ICartElement }) => {
     const { id, name, price, imageUrl, quantity } = cartItem;
@@ -13,17 +13,17 @@ const CheckoutItem = ({ cartItem }: { cartItem: ICartElement }) => {
     const clearItemHandler = () => clearItemFromCart(cartItem);
 
     return (
-        <div className='checkout-item-container'>
-            <div className='image-container'><img src={imageUrl} alt={`${name}`} /></div>
-            <span className='name'>{name}</span>
-            <span className='quantity'>
-                <span className='arrow' onClick={decrementItemHandler}><Icon name='angle left' /></span>
-                <span className='value'>{quantity as number}</span>
-                <span className='arrow' onClick={incrementItemHandler}><Icon name='angle right' /></span>
-            </span>
-            <span className='price'>{quantity} x ${price} = {(quantity as number) * price}</span>
-            <div className='remove-button' onClick={clearItemHandler}><Icon name='close' color='red' /></div>
-        </div>
+        <CheckoutItemContainer>
+            <ImageContainer><img src={imageUrl} alt={`${name}`} /></ImageContainer>
+            <BaseSpan>{name}</BaseSpan>
+            <Quantity>
+                <Arrow onClick={decrementItemHandler}><Icon name='angle left' /></Arrow>
+                <Value>{quantity as number}</Value>
+                <Arrow onClick={incrementItemHandler}><Icon name='angle right' /></Arrow>
+            </Quantity>
+            <BaseSpan>{quantity} x ${price} = {(quantity as number) * price}</BaseSpan>
+            <RemoveButton onClick={clearItemHandler}><Icon name='close' color='red' /></RemoveButton>
+        </CheckoutItemContainer>
     );
 };
 

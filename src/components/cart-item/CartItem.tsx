@@ -1,19 +1,22 @@
 import { ICartElement } from '../../utils/InterfaceTypes';
-import './cart-item.styles.scss';
+import {
+    CartItemContainer,
+    CartItemDetails,
+} from './StyledCartItem.styles';
 
 const CartItem = ({ cartItem }: { cartItem: ICartElement }) => {
     const { imageUrl, price, name, quantity } = cartItem;
 
     return (
-        <div className='cart-item-container'>
+        <CartItemContainer>
             <img src={imageUrl} alt={`${name}`} />
-            <div className='item-details'>
+            <CartItemDetails>
                 <span className='name'>{name}</span>
                 <span className='price'>
                     {quantity} x ${price}
                 </span>
-            </div>
-        </div>
+            </CartItemDetails>
+        </CartItemContainer>
     );
 };
 
