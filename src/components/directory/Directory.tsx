@@ -1,8 +1,9 @@
 import DirectoryItem from '../directory-item/DirectoryItem';
 import { ICategory } from '../../utils/InterfaceTypes';
+import { categories } from '../../utils/AppConstants';
 import './directory.styles.scss';
 
-const Directory = ({ categories }: { categories: ICategory[] }) => {
+const Directory = () => {
     return (
         <div className='directory-container'>
             {categories.map((category: ICategory) => (

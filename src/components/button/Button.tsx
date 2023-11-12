@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
     BaseButton,
     GoogleSignInButton,
@@ -18,7 +19,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
 }[buttonType]);
 
 interface IButtonType {
-    children: string;
+    children?: ReactNode | null | string;
     buttonType?: string;
     type?: 'button' | 'submit' | 'reset' | undefined;
     onClick?: () => void;

@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { ISignInFormFields } from '../../utils/InterfaceTypes';
 import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
@@ -20,10 +20,9 @@ const SignInForm = () => {
     // const value = useContext<CurrentUserContextType | null>(UserContext);
     // const { setCurrentUser } = value as CurrentUserContextType;
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setFormFields({ ...formFields, [data.name]: data.value })
-        console.log(formFields)
+        setFormFields({ ...formFields, [event.target.name]: event.target.value })
     }
 
     const resetFormFields = () => {
@@ -38,7 +37,7 @@ const SignInForm = () => {
         // resetFormFields();
     }
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>, data: FormProps) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!email || !password) {
             alert('Please enter both email Id and password');
@@ -46,7 +45,6 @@ const SignInForm = () => {
         }
         try {
             const response: UserCredential | undefined = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response)
             if (response?.user) {
                 alert('SignIn Success!')
                 // setCurrentUser(response.user)
@@ -71,7 +69,7 @@ const SignInForm = () => {
             <h2>Already registered?</h2>
             <Segment>
                 <span>Sign In with your Email or Google</span>
-                <Form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} >
                     <FormInput label='Email'
                         type='email'
                         required
@@ -96,7 +94,7 @@ const SignInForm = () => {
                             Sign In With Google
                         </Button>
                     </div>
-                </Form>
+                </form>
             </Segment>
         </StyledSignInForm>
     );

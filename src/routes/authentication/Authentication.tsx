@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Divider, Grid, Segment } from 'semantic-ui-react';
 import { getRedirectResult } from 'firebase/auth';
 import { auth, signInWithGoogleRedirect, signInWithGooglePopup, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import SignUpForm from '../../components/sign-up-form/SignUpForm';
@@ -14,9 +13,8 @@ const Authentication = () => {
         // Could not make anonymous due to typescript
         const redirectResponseFn = async () => {
             const response = await getRedirectResult(auth);
-            console.log(response);
             if (response) {
-                const userDocRef = await createUserDocumentFromAuth(response.user);
+                await createUserDocumentFromAuth(response.user);
             }
         }
         redirectResponseFn();
@@ -24,7 +22,7 @@ const Authentication = () => {
 
     const logGoogleUser = async () => {
         const { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user);
+        await createUserDocumentFromAuth(user);
     }
 
     /*     const logGoogleRedirectUser = async () => {
@@ -33,19 +31,10 @@ const Authentication = () => {
 
     return (
         <>
-            <Segment placeholder>
-                <Grid columns={2} stackable textAlign='center'>
-                    <Divider vertical>Or</Divider>
-                    <Grid.Row verticalAlign='middle'>
-                        <Grid.Column>
-                            <SignInForm />
-                        </Grid.Column>
-                        <Grid.Column>
-                            <SignUpForm />
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>
+            <div className="authentication-container">
+                <SignInForm />
+                <SignUpForm />
+            </div>
             <div className='additional-auth'>
                 <h2>Additional SignIn Authentications: </h2>
                 <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={logGoogleUser}>

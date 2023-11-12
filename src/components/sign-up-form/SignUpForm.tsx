@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { Form, FormProps, InputOnChangeData, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { ISignUpFormFields } from '../../utils/InterfaceTypes';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import { UserCredential } from 'firebase/auth';
@@ -22,17 +22,16 @@ const SignUpForm = () => {
     // const value = useContext<CurrentUserContextType | null>(UserContext);
     // const { setCurrentUser } = value as CurrentUserContextType;
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setFormFields({ ...formFields, [data.name]: data.value })
-        console.log(formFields)
+        setFormFields({ ...formFields, [event.target.name]: event.target.value })
     }
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     };
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>, data: FormProps) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (password !== confirmPassword) {
             alert('Password do not match. Please reconfirm password');
@@ -61,7 +60,7 @@ const SignUpForm = () => {
             <h2>Don't Have an account?</h2>
             <Segment>
                 <span>Sign Up with your Email and Password</span>
-                <Form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} >
                     <FormInput label='Display Name'
                         type='text'
                         required
@@ -91,7 +90,7 @@ const SignUpForm = () => {
                         value={confirmPassword}
                     />
                     <Button type='submit'>Sign Up</Button>
-                </Form>
+                </form>
             </Segment>
         </StyledSignUpForm>
     );

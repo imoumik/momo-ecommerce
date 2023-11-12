@@ -1,22 +1,26 @@
-import { ChangeEvent } from 'react';
-import { Form, Input, InputOnChangeData } from 'semantic-ui-react';
-// import clsx from 'clsx';
-import StyledInput from './StyledInput.styles';
+import { ChangeEventHandler } from 'react';
+import { FormInputLabel, Input, Group } from './StyledInput.styles';
 
-const FormInput = ({ label, ...otherProps }: { label: string; type: string; required: true; onChange: (event: ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => void; name: string; value: string; }) => {
+interface IFormInputType {
+    label: string;
+    value?: string | undefined;
+    required?: boolean;
+    type?: 'text' | 'email' | 'password';
+    name?: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+    otherProps?: any
+}
+
+const FormInput = ({ label, name, required = false, ...otherProps }: IFormInputType) => {
     return (
-        <StyledInput>
-            <Form.Field>
-                {label &&
-                    <label
-                    /* className={clsx('form-input-label',
-                         { 'shrink': (otherProps.value.length > 0) })} 
-                         */
-                    >{label}
-                    </label>}
-                <Input {...otherProps} /* className='form-input' */ />
-            </Form.Field >
-        </StyledInput>
+        <Group>
+            <Input required={required} name={name} {...otherProps} />
+            {label && (
+                <FormInputLabel shrink={otherProps?.value?.length}>
+                    {label}
+                </FormInputLabel>
+            )}
+        </Group>
     );
 };
 
