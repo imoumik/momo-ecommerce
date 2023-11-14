@@ -9,10 +9,14 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../cart-icon/CartIcon';
 import CartDropdown from '../cart-dropdown/CartDropdown';
 import { HeaderContainer, LogoContainer, NavLink, NavLinks } from './StyledHeader.styles';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/userSelector';
 
 const HeaderComponent = () => {
-    const value = useContext<CurrentUserContextType | null>(UserContext);
-    const { currentUser } = value as CurrentUserContextType;
+    //VALUE FROM STORE
+    const currentUser = useSelector(selectCurrentUser);
+    /*     const value = useContext<CurrentUserContextType | null>(UserContext);
+        const { currentUser } = value as CurrentUserContextType; */
 
     const { isCartOpen } = useContext<ICartContext>(CartContext);
 

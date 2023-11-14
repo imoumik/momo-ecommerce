@@ -36,7 +36,7 @@ export interface ICartElement {
 
 export interface ICartContext {
     isCartOpen: boolean;
-    setCartOpen: Dispatch<SetStateAction<boolean>>;
+    setCartOpen: (bool: boolean) => void;
     cartItems: ICartElement[];
     addItemToCart: (productToAdd: ICartElement) => void;
     cartCount: number;
@@ -44,4 +44,3 @@ export interface ICartContext {
     clearItemFromCart: (cartItemToClear: ICartElement) => void;
     cartTotal: number;
 }
-

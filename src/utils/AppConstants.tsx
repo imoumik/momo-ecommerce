@@ -32,3 +32,8 @@ export const categories: ICategory[] = [
         route: 'mens'
     }
 ]
+
+export const ACTION_TYPES = {
+    SET_CURRENT_USER: 'user/SET_CURRENT_USER',
+    SET_CATEGORIES_MAP: 'categories/SET_CATEGORIES_MAP'
+}
