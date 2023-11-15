@@ -19,6 +19,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
+    "reselect": "^4.1.8",
     "sass": "^1.69.5",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
