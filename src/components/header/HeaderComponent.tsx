@@ -1,16 +1,13 @@
-import { useContext } from 'react';
 import { Image, Header } from 'semantic-ui-react';
 import letterM from '../../resources/letterM.png';
 // import Mimg from '../resources/Mimg.png';
-import { UserContext } from '../../contexts/UserContext';
-import { CartContext } from '../../contexts/CartContext';
-import { CurrentUserContextType, ICartContext } from '../../utils/InterfaceTypes';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../cart-icon/CartIcon';
 import CartDropdown from '../cart-dropdown/CartDropdown';
 import { HeaderContainer, LogoContainer, NavLink, NavLinks } from './StyledHeader.styles';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/userSelector';
+import { selectIsCartOpen } from '../../store/cart/cartSelector';
 
 const HeaderComponent = () => {
     //VALUE FROM STORE
@@ -18,7 +15,7 @@ const HeaderComponent = () => {
     /*     const value = useContext<CurrentUserContextType | null>(UserContext);
         const { currentUser } = value as CurrentUserContextType; */
 
-    const { isCartOpen } = useContext<ICartContext>(CartContext);
+    const isCartOpen = useSelector(selectIsCartOpen);
 
     /* const signOutHandler = async () => {
         await signOutUser(); // becomes undefined if user is signed out
