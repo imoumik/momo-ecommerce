@@ -35,5 +35,7 @@ export const categories: ICategory[] = [
 
 export const ACTION_TYPES = {
     SET_CURRENT_USER: 'user/SET_CURRENT_USER',
-    SET_CATEGORIES_MAP: 'categories/SET_CATEGORIES_MAP'
+    SET_CATEGORIES: 'categories/SET_CATEGORIES',
+    SET_CART_ITEMS: 'cart/SET_CART_ITEMS',
+    SET_IS_CART_OPEN: 'cart/SET_IS_CART_OPEN'
 }

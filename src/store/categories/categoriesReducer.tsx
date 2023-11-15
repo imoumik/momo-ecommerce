@@ -1,27 +1,27 @@
-import { ACTION_TYPES } from "../../utils/AppConstants";
-import { ICartElement } from "../../utils/InterfaceTypes";
+import { ACTION_TYPES } from '../../utils/AppConstants';
+import { ICartElement } from '../../utils/InterfaceTypes';
 
 //REDUCER INTERFACES
 interface CategoriesState {
-    categoriesMap: Record<any, any>;
+    categories: any[];
 }
 interface CategoriesAction {
-    type: 'categories/SET_CATEGORIES_MAP',
+    type: 'categories/SET_CATEGORIES',
     payload: any
 }
 
 // Initial State
 const INITIAL_STATE: CategoriesState = {
-    categoriesMap: {}
+    categories: []
 }
 
 //REDUCER
 export const categoriesReducer = (state = INITIAL_STATE, action = {} as CategoriesAction) => {
     const { type, payload } = action;
     switch (type) {
-        case ACTION_TYPES.SET_CATEGORIES_MAP:
-            return { ...state, categoriesMap: payload }
+        case ACTION_TYPES.SET_CATEGORIES:
+            return { ...state, categories: payload };
         default:
             return state;
     }
-}
+};

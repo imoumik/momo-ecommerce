@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 import { ACTION_TYPES } from '../../utils/AppConstants'
 
 // An interface for our state

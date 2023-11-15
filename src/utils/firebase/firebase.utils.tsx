@@ -50,20 +50,21 @@ export const addCollectionAndDocuments = async (collectionKey: string, objectsTo
     console.log('batch done');
 }
 
-export const getCollectionAndDocuments = async () => {
+export const getCategoriesAndDocuments = async () => {
     const collectionRef = collection(db, 'categories');
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q); // snapshot are the actual data themselves
     // querySnapshot.docs = Array of all the individual documents
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    /* const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
         //@ts-ignore
         const { title, items }: { title: string, items: Record<string, any> } = docSnapshot.data();
         //@ts-ignore
         acc[title.toLowerCase()] = items;
         return acc
-    }, [])
-    return categoryMap;
+    }, []) */
+    const categoryArray = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());//returns categories array
+    return categoryArray;
 }
 
 export const createUserDocumentFromAuth = async (userAuth: User,
