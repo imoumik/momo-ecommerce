@@ -3,15 +3,18 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import CategoriesPreview from '../categories-preview/CategoriesPreview';
 import Category from '../category/Category';
-import { fetchCategoriesAsync } from '../../store/categories/categoriesAction';
+import { fetchCategoriesStart } from '../../store/categories/categoriesAction';
+// import { fetchCategoriesAsync } from '../../store/categories/categoriesAction';
 
 const Shop = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // @ts-ignore
-        dispatch(fetchCategoriesAsync());
+        //SAGA
+        dispatch(fetchCategoriesStart());
+        // @ts-ignore THUNK
+        // dispatch(fetchCategoriesAsync());
     }, []);
 
     return (

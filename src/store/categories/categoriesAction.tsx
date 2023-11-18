@@ -1,7 +1,6 @@
 import { createAction } from '../../utils/reducer.utils'
 import { ACTION_TYPES } from '../../utils/AppConstants';
 import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
-import { AnyAction } from 'redux';
 
 // These 3 Methods are Synchronous methods & regular actions
 export const fetchCategoriesStart = () =>
